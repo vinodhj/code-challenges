@@ -17,7 +17,7 @@ The `PrimeChecker` function takes an integer `num` and checks if any permutation
 Here’s the JavaScript implementation:
 
 ```javascript
-function PrimeChecker(num) {
+function PrimePermutationChecker(num) {
   // Helper function to check if a number is prime
   function isPrime(n) {
     if (n <= 1) return false; // 0 and 1 are not prime numbers
@@ -62,6 +62,6 @@ function PrimeChecker(num) {
 }
 
 // Test the function with the example input
-console.log(PrimeChecker(910)); // Output: 1
-console.log(PrimeChecker(100)); // Output: 0
+console.log(PrimePermutationChecker(910)); // Output: 1
+console.log(PrimePermutationChecker(100)); // Output: 0
 ```
