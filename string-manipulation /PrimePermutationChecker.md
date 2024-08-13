@@ -1,8 +1,8 @@
-# PrimeChecker Function
+# PrimePermutationChecker Function
 
 ## Problem Statement
 
-The `PrimeChecker` function takes an integer `num` and checks if any permutation of the digits in `num` results in a prime number. If at least one permutation is prime, the function returns `1`; otherwise, it returns `0`.
+The `PrimePermutationChecker` function takes an integer `num` and checks if any permutation of the digits in `num` results in a prime number. If at least one permutation is prime, the function returns `1`; otherwise, it returns `0`.
 
 ### Example
 
