@@ -25,7 +25,9 @@ Round the result to two decimal places.
 +----------+
 | 45.00    |
 +----------+
+```
 
+## SQL Query
 
 ```sql
 SELECT ROUND(SUM(tiv_2016), 2) AS tiv_2016
