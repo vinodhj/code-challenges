@@ -1,0 +1,59 @@
+# SQL Problem: Find the Customer with the Most Orders
+
+## Table Schema
+
+### Orders
+| Column Name     | Type     |
+| --------------- | -------- |
+| order_number    | int      |
+| customer_number | int      |
+
+- `order_number` is the primary key (column with unique values) for this table.
+- This table contains information about the order ID and the customer ID.
+
+## Problem Statement
+
+Write a solution to find the `customer_number` for the customer who has placed the largest number of orders.
+
+The test cases are generated so that exactly one customer will have placed more orders than any other customer.
+
+### Example 1:
+
+#### Input:
+
+Orders table:
+| order_number | customer_number |
+| -------------| ----------------|
+| 1            | 1               |
+| 2            | 2               |
+| 3            | 3               |
+| 4            | 3               |
+
+#### Output:
+| customer_number |
+| ----------------|
+| 3               |
+
+#### Explanation:
+The customer with number 3 has two orders, which is greater than either customer 1 or 2 because each of them only has one order. So the result is `customer_number` 3.
+
+## SQL Query
+
+### Solution - 1:
+```sql
+SELECT customer_number 
+FROM Orders
+GROUP BY customer_number
+ORDER BY COUNT(order_number) DESC
+LIMIT 1;
+```
+
+### Solution - 2:
+```sql
+with temp AS (
+select *, ROW_NUMBER() OVER (PARTITION BY customer_number) as row_no
+FROM Orders
+  )
+
+select customer_number from temp
+where row_no=(select max(row_no) from temp)
